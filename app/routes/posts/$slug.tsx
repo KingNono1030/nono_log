@@ -1,7 +1,7 @@
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import { getPostBySlug } from "~/utils/blog.server";
-import { MDXRemote } from "next-mdx-remote";
+import { json } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
+import { getPostBySlug } from '~/utils/blog.server';
+import { MDXRemote } from 'next-mdx-remote';
 
 export async function loader({ params }) {
   const { slug } = params;
@@ -18,4 +18,4 @@ export default function Post() {
       <MDXRemote source={content} />
     </div>
   );
-} 
+}

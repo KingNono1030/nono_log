@@ -10,6 +10,8 @@ export async function loader() {
 export default function PostsIndex() {
   const posts = useLoaderData();
 
+  
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-6">블로그 포스트</h1>
@@ -23,4 +25,4 @@ export default function PostsIndex() {
       </ul>
     </div>
   );
-} 
+}
