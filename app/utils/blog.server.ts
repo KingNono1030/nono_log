@@ -1,13 +1,13 @@
-import { BlogPost, BlogPostFrontmatter } from "~/types/blog";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { BlogPost, BlogPostFrontmatter } from '~/types/blog';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
-const postsDirectory = path.join(process.cwd(), "app/posts");
+const postsDirectory = path.join(process.cwd(), 'app/posts');
 
 export async function getPostBySlug(slug: string): Promise<BlogPost> {
   const fullPath = path.join(postsDirectory, `${slug}.mdx`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
   return {
@@ -24,9 +24,9 @@ export async function getPostBySlug(slug: string): Promise<BlogPost> {
 export async function getAllPosts(): Promise<BlogPostFrontmatter[]> {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.mdx$/, "");
+    const slug = fileName.replace(/\.mdx$/, '');
     const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data } = matter(fileContents);
 
     return {

@@ -5,8 +5,8 @@ export type BlogPost = {
   excerpt: string;
   date: string;
   tags: string[];
-  
+
   author: string;
 };
 
-export type BlogPostFrontmatter = Omit<BlogPost, "content">;
+export type BlogPostFrontmatter = Omit<BlogPost, 'content'>;
